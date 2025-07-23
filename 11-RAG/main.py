@@ -10,7 +10,7 @@ import os
 
 class ChatBot:
     def __init__(self):
-        load_dotenv()
+        load_dotenv("../.env")
 
         file_path = './it_sector.txt'
         with open(file_path, 'r', encoding='utf-8') as file:
