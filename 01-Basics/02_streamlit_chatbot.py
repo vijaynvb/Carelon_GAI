@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Company Chatbot",
+    page_title="Carelon Chatbot",
     page_icon=":robot_face:",
     layout="centered",
     initial_sidebar_state='expanded',
