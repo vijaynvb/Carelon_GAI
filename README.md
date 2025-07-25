@@ -1,6 +1,8 @@
 # Carelon_GAI
 Carelon GAI Training
 
+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
+
 Lab Details are there in Docs/Lab_Details... file
 
 Pretest link: https://forms.office.com/r/mK4XJ6RrYf

@@ -1,6 +1,6 @@
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_aws import BedrockEmbeddings, ChatBedrock
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import FAISS # vector db meta, chroma db
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import PromptTemplate 
@@ -22,6 +22,7 @@ class ChatBot:
         embeddings = BedrockEmbeddings(
             model_id="amazon.titan-embed-text-v2:0",
         )
+        # store the docs chunks into a vector database
         vectorstore = FAISS.from_texts(texts=docs, embedding=embeddings)
 
         llm = ChatBedrock(
@@ -50,6 +51,7 @@ class ChatBot:
         
         def retrieve_context(question):
             docs1 = vectorstore.similarity_search(question, k=4)
+            # return only 4 chunks as a single string
             return "\n".join([doc.page_content for doc in docs1])
 
         self.rag_chain = (
